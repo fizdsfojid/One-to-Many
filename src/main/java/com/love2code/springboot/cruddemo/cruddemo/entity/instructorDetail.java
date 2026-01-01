@@ -17,7 +17,7 @@ public class instructorDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private String Id;
+    private Integer Id;
 
     @Column(name = "hobby")
     private String hobby;

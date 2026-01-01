@@ -19,7 +19,7 @@ public class AppDAOimpl implements AppDAO {
     @Override
     @Transactional
     public void save(instructor theInstructor) {
-        this.entityManager.persist(theInstructor);
+        entityManager.persist(theInstructor);
 
     }
 
