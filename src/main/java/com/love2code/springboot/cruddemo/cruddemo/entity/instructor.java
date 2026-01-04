@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Id;
+import lombok.ToString;
 import org.springframework.data.repository.cdi.Eager;
 
 import java.util.ArrayList;
@@ -34,8 +35,9 @@ public class instructor {
     @JoinColumn(name = "instructor_detail_id")
     private instructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor", fetch =FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
+    @OneToMany(mappedBy = "instructor", fetch=FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE
                                                   ,CascadeType.REFRESH, CascadeType.DETACH})
+    @ToString.Exclude
     private List<Course> courses;
 
     public instructor(String firstName, String lastName, String email) {
